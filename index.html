@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Inaaya!</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <script src="https://cdn.jsdelivr.net/npm/confetti-js@0.0.18/dist/index.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Poppins:wght@400;600;700&display=swap');
+    </style>
+</head>
+<body class="bg-gradient-to-br from-pink-400 to-purple-500 min-h-screen font-['Poppins'] text-white overflow-x-hidden">
+    <div id="app" class="min-h-screen flex flex-col items-center justify-center p-4 transition-all duration-500">
+        <!-- Screen 1: Birthday Wish -->
+        <div id="screen1" class="text-center max-w-3xl w-full">
+            <div class="animate-bounce duration-500 mb-8">
+                <img src="https://th.bing.com/th/id/R.303daeb2e5eb38361de0e84702718edb?rik=2hrcHbZzJHB0CQ&pid=ImgRaw&r=0" class="rounded-full w-40 h-40 mx-auto border-4 border-white shadow-xl" alt="Birthday Cake">
+            </div>
+            <h1 class="text-5xl md:text-7xl font-bold mb-6 font-['Bubblegum+Sans'] animate-pulse">Happy Birthday Inaaya!</h1>
+            <p class="text-xl md:text-2xl mb-8">Someone special is turning another year more awesome today!</p>
+            <button onclick="nextScreen()" class="bg-white text-pink-500 hover:bg-pink-100 px-8 py-3 rounded-full text-lg font-bold shadow-lg transform hover:scale-110 transition-transform duration-300 animate-bounce">
+                Continue the Celebration!
+            </button>
+            <div class="mt-12 flex justify-center space-x-4">
+                <img src="http://static.photos/blue/200x200/1" class="w-20 h-20 rounded-full bounce" alt="Balloon">
+                <img src="http://static.photos/red/200x200/3" class="w-20 h-20 rounded-full bounce delay-200" alt="Balloon">
+            </div>
+        </div>
+
+        <!-- Screen 2: Birthday Card -->
+        <div id="screen2" class="hidden text-center max-w-3xl w-full">
+            <div class="bg-white text-pink-700 p-8 rounded-3xl shadow-2xl transform hover:scale-105 transition-transform duration-500">
+                <div class="border-4 border-pink-400 border-dashed rounded-2xl p-6">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6 font-['Bubblegum+Sans']">To the Amazing Inaaya</h2>
+                    <div class="relative mb-6">
+                        <img src="https://th.bing.com/th/id/R.6b96fa15bf5ace46bef94d99e732cc0b?rik=UPyVfI0JF7xTWQ&pid=ImgRaw&r=0" class="w-full h-64 object-cover rounded-xl border-4 border-pink-300" alt="Birthday Party">
+                        <div class="absolute -top-4 -right-4 bg-pink-500 text-white rounded-full w-12 h-12 flex items-center justify-center text-xl">🎂</div>
+                    </div>
+                    <p class="text-xl mb-8">Wishing you laughter, wishing you cheer,<br>
+For someone as lovely as you, all year.</p>
+                    <button onclick="nextScreen()" class="bg-pink-500 hover:bg-pink-600 text-white px-8 py-3 rounded-full text-lg font-bold shadow-lg transform hover:scale-110 transition-transform duration-300">
+                        Even More Surprises!
+                    </button>
+                </div>
+            </div>
+            <div class="mt-8 flex justify-center space-x-4">
+                <div class="w-4 h-4 bg-white rounded-full animate-ping"></div>
+                <div class="w-4 h-4 bg-white rounded-full animate-ping delay-100"></div>
+                <div class="w-4 h-4 bg-white rounded-full animate-ping delay-200"></div>
+            </div>
+        </div>
+
+        <!-- Screen 3: Personal Message -->
+        <div id="screen3" class="hidden text-center max-w-3xl w-full">
+            <div class="backdrop-blur-sm bg-white/30 p-8 rounded-3xl shadow-2xl">
+                <h3 class="text-3xl md:text-4xl font-bold mb-6 font-['Bubblegum+Sans']">A Special Message Just For You</h3>
+                <div class="bg-white text-pink-700 p-6 rounded-xl mb-8 text-left relative">
+                    <div class="absolute -top-3 -left-3 w-8 h-8 bg-pink-500 rounded-full flex items-center justify-center text-white">❣️</div>
+                    <p class="text-lg">Dear Inaaya,</p>
+                    <p class="my-4">Happy birthday! I am really glad our paths crossed— I hope today brings you all the joy you bring to everyone around you!</p>
+                    <p>May this year bring you more happiness than you can imagine, more success than you've dreamed of, and more love than you can contain!</p>
+                    <p>You make the world a little nicer just by being in it. Hope today treats you kindly.</p>
+                    <div class="absolute -bottom-3 -right-3 w-8 h-8 bg-pink-500 rounded-full flex items-center justify-center text-white">❣️</div>
+                </div>
+                <div class="grid grid-cols-3 gap-4 mb-8">
+                    <div class="bg-pink-400 p-3 rounded-lg bounce">🎁</div>
+                    <div class="bg-purple-400 p-3 rounded-lg bounce delay-100">🎀</div>
+                    <div class="bg-pink-400 p-3 rounded-lg bounce delay-200">🎈</div>
+                </div>
+                <button onclick="startConfetti()" class="bg-gradient-to-r from-pink-500 to-purple-600 hover:from-pink-600 hover:to-purple-700 px-8 py-4 rounded-full text-lg font-bold shadow-lg">
+                    Click for More Magic!
+                </button>
+                <canvas id="confetti" class="fixed top-0 left-0 w-full h-full pointer-events-none z-50 hidden"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script>
+        feather.replace();
+    </script>
+</body>
+</html>
